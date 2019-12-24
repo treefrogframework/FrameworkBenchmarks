@@ -1,15 +1,9 @@
 #include "jsoncontroller.h"
 
 
-void JsonController::index()
-{
-    // write codes
-}
-
 void JsonController::json()
 {
-    QVariantMap obj;
-    obj[QStringLiteral("message")] = "Hello, World!";
+    static QVariantMap obj = {{QStringLiteral("message"), QStringLiteral("Hello, World!")}};
     renderJson(obj);
 }
 

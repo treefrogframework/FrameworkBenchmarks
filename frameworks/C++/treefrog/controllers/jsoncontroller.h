@@ -9,11 +9,10 @@ class T_CONTROLLER_EXPORT JsonController : public ApplicationController
     Q_OBJECT
 public:
     JsonController() { }
-    bool sessionEnabled() const { return false; }
-    bool transactionEnabled() const { return false; }
+    bool sessionEnabled() const override { return false; }
+    bool transactionEnabled() const override { return false; }
 
 public slots:
-    void index();
     void json();
 };
 
