@@ -15,7 +15,7 @@ WORKDIR /usr/src
 RUN wget -q https://github.com/treefrogframework/treefrog-framework/archive/v${TFVER}.tar.gz
 RUN tar xf v${TFVER}.tar.gz
 RUN cd treefrog-framework-${TFVER} && \
-    ./configure --spec=linux-clang && \
+    ./configure && \
     cd src && \
     make -j4 && \
     make install && \
@@ -27,7 +27,7 @@ WORKDIR /workspace
 COPY ./ ./
 
 # 1. Generate Makefile
-RUN qmake -r CONFIG+=release -spec linux-clang
+RUN qmake -r CONFIG+=release
 
 # 2. Compile applicaton
 RUN make
