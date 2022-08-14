@@ -17,7 +17,7 @@ RUN tar xf v${TFVER}.tar.gz
 RUN cd treefrog-framework-${TFVER} && \
     ./configure --spec=linux-clang && \
     cd src && \
-    make -j4 && \
+    make -j5 && \
     make install && \
     cd ../tools && \
     make -j4 && \
