@@ -20,7 +20,7 @@ RUN cd treefrog-framework-${TFVER} && \
     make -j4 && \
     make install && \
     cd ../tools && \
-    make -j4 && \
+    make -j2 && \
     make install
 
 WORKDIR /workspace
