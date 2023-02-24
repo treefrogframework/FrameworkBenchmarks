@@ -32,13 +32,19 @@ void WorldController::queries()
 
 void WorldController::queries(const QString &num)
 {
-    QVariantList worlds;
     int d = std::min(std::max(num.toInt(), 1), 500);
 
+    QList<uint> ids;
     for (int i = 0; i < d; ++i) {
-        int id = Tf::random(1, 10000);
-        worlds << World::get(id).toVariantMap();
+        ids << Tf::random(1, 10000);
     }
+
+    QVariantList worlds;
+    auto worldList = World::getList(ids);
+    for (auto &world : worldList) {
+        worlds << world.toVariantMap();
+    }
+
     renderJson(worlds);
 }
 
@@ -203,13 +209,19 @@ void WorldController::pqueries()
 
 void WorldController::pqueries(const QString &num)
 {
-    QVariantList worlds;
     int d = std::min(std::max(num.toInt(), 1), 500);
 
+    QList<uint> ids;
     for (int i = 0; i < d; ++i) {
-        int id = Tf::random(1, 10000);
-        worlds << PWorld::get(id).toVariantMap();
+        ids << Tf::random(1, 10000);
     }
+
+    QVariantList worlds;
+    auto worldList = PWorld::getList(ids);
+    for (auto &world : worldList) {
+        worlds << world.toVariantMap();
+    }
+
     renderJson(worlds);
 }
 
@@ -275,13 +287,19 @@ void WorldController::mqueries()
 
 void WorldController::mqueries(const QString &num)
 {
-    QVariantList worlds;
     int d = std::min(std::max(num.toInt(), 1), 500);
 
+    QList<uint> ids;
     for (int i = 0; i < d; ++i) {
-        QString id = QString::number(Tf::random(1, 10000));
-        worlds << MngWorld::get(id).toVariantMap();
+        ids << Tf::random(1, 10000);
     }
+
+    QVariantList worlds;
+    auto worldList = MngWorld::getList(ids);
+    for (auto &world : worldList) {
+        worlds << world.toVariantMap();
+    }
+
     renderJson(worlds);
 }
 

@@ -91,6 +91,15 @@ QList<World> World::getAll()
     return tfGetModelListByCriteria<World, WorldObject>(TCriteria());
 }
 
+QList<World> World::getList(const QList<uint> &ids)
+{
+    QList<QVariant> list;
+    for (auto id : ids) {
+        list.append(id);
+    }
+    return tfGetModelListByCriteria<World, WorldObject>(TCriteria(WorldObject::Id, TSql::In, list));
+}
+
 TModelObject *World::modelData()
 {
     return d.data();

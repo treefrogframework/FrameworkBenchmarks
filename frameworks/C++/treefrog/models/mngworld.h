@@ -36,6 +36,7 @@ public:
     static MngWorld get(const QString &id);
     static int count();
     static QList<MngWorld> getAll();
+    static QList<MngWorld> getList(const QList<uint> &ids);
     static QJsonArray getAllJson();
 
 private:

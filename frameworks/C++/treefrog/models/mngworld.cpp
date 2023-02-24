@@ -81,6 +81,15 @@ QList<MngWorld> MngWorld::getAll()
     return tfGetModelListByMongoCriteria<MngWorld, MngWorldObject>(TCriteria());
 }
 
+QList<MngWorld> MngWorld::getList(const QList<uint> &ids)
+{
+    QList<QVariant> list;
+    for (auto id : ids) {
+        list.append(id);
+    }
+    return tfGetModelListByMongoCriteria<MngWorld, MngWorldObject>(TCriteria(MngWorldObject::Id, TMongo::In, list));
+}
+
 QJsonArray MngWorld::getAllJson()
 {
     QJsonArray array;

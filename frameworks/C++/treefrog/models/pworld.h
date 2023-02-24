@@ -35,6 +35,7 @@ public:
     static PWorld get(uint id);
     static int count();
     static QList<PWorld> getAll();
+    static QList<PWorld> getList(const QList<uint> &ids);
 
 private:
     QSharedDataPointer<PWorldObject> d;
