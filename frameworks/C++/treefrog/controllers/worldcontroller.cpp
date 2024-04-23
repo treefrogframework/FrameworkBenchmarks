@@ -34,7 +34,7 @@ void WorldController::queries()
 void WorldController::queries(const QString &num)
 {
     QVariantList worlds;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
 
     for (int i = 0; i < d; ++i) {
         int id = Tf::random(1, 10000);
@@ -53,7 +53,7 @@ void WorldController::cached_queries(const QString &num)
     constexpr int SECONDS = 60 * 10;  // cache time
     QVariantList worlds;
     QVariantMap world;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
 
     for (int i = 0; i < d; ++i) {
         int id = Tf::random(1, 10000);
@@ -163,7 +163,7 @@ void WorldController::updates()
 void WorldController::updates(const QString &num)
 {
     QVariantList worlds;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
     World world;
 
     for (int i = 0; i < d; ++i) {
@@ -205,7 +205,7 @@ void WorldController::pqueries()
 void WorldController::pqueries(const QString &num)
 {
     QVariantList worlds;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
 
     for (int i = 0; i < d; ++i) {
         int id = Tf::random(1, 10000);
@@ -224,7 +224,7 @@ void WorldController::cached_pqueries(const QString &num)
     constexpr int SECONDS = 60 * 30;  // cache time
     QVariantList worlds;
     QVariantMap world;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
 
     for (int i = 0; i < d; ++i) {
         int id = Tf::random(1, 10000);
@@ -291,7 +291,7 @@ void WorldController::mqueries()
 void WorldController::mqueries(const QString &num)
 {
     QVariantList worlds;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
 
     for (int i = 0; i < d; ++i) {
         QString id = QString::number(Tf::random(1, 10000));
@@ -310,7 +310,7 @@ void WorldController::cached_mqueries(const QString &num)
     constexpr int SECONDS = 60 * 10;  // cache time
     QVariantList worlds;
     QVariantMap world;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
 
     for (int i = 0; i < d; ++i) {
         int id = Tf::random(1, 10000);
@@ -346,7 +346,7 @@ void WorldController::mupdates()
 void WorldController::mupdates(const QString &num)
 {
     QVariantList worlds;
-    int d = std::min(std::max(num.toInt(), 1), 500);
+    int d = std::clamp(num.toInt(), 1, 500);
     MngWorld world;
 
     for (int i = 0; i < d; ++i) {
