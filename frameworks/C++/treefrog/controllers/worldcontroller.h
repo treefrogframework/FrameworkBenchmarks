@@ -8,7 +8,7 @@ class T_CONTROLLER_EXPORT WorldController : public ApplicationController
 {
     Q_OBJECT
 public:
-    WorldController() {}
+    WorldController() { }
     bool sessionEnabled() const { return false; }
     bool transactionEnabled() const { return false; }
 

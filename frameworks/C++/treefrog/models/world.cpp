@@ -46,7 +46,10 @@ World &World::operator=(const World &other)
 
 bool World::update()
 {
-    return TAbstractModel::update();
+    TSqlQueryORMapper<WorldObject> mapper;
+    mapper.prepare(QStringLiteral("UPDATE world SET randomNumber=? WHERE id=?"));
+    mapper.addBind(randomNumber()).addBind(id());
+    return mapper.exec();
 }
 
 World World::create(int randomNumber)
@@ -71,8 +74,10 @@ World World::create(const QVariantMap &values)
 
 World World::get(uint id)
 {
-    TSqlORMapper<WorldObject> mapper;
-    return World(mapper.findByPrimaryKey(id));
+    TSqlQueryORMapper<WorldObject> mapper;
+    mapper.prepare(QStringLiteral("SELECT * from world WHERE id=?"));
+    mapper.addBind(id);
+    return World(mapper.execFirst());
 }
 
 int World::count()
